@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
-{% block content %}
-
-    <h1>Welcome to Star Social!</h1>
-    <h2>The best community for all things on outer space!</h2>
-    <h2>Login or Sign-up for free to get started!</h2>
-
-
+{% block home%}
+    class='active'
+{% endblock %}
+{% block inner_content %}
+    <div class="col-md-12">
+        <div class="card">
+        <div class="card-header">
+            <h5 class="title">Welcome to Scrum Pad!</h5>
+            <p class="category"> - From the developers at <a
+                href="">Scrum Pad</a></p>
+        </div>
+        <div class="card-body all-icons">
+            <div class="row">
+            <div class="container mycontent">
+                <h2>Become more productive and efficient at solving engineering problems. Utilize SCRUM.</h2>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
 {% endblock %}

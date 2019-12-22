@@ -1,13 +1,30 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
 
-{% block contents %}
-    <div class="container">
-        <h2>Sign Up</h2>
-        <form method="POST">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <input type="submit" class='btn btn-primary' value="Sign Up">
-        </form>
+{% block inner_content %}
+
+    <div class="col-md-12">
+        <div class="card">
+        <div class="card-header">
+            <h5 class="title">Let's grow together!</h5>
+            <p class="category"> - From the developers at <a
+                href="">Scrum Pad</a></p>
+        </div>
+        <div class="card-body all-icons">
+            <div class="row">
+            <div class="container mycontent">
+                <div class="container">
+                    <h2>Sign Up</h2>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <input type="submit" class='btn btn-primary' value="Sign Up">
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
+
 {% endblock %}
