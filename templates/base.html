@@ -105,7 +105,7 @@
           </li>
           {% if user.is_authenticated %}
             <li {% block create %} {% endblock %}>
-                <a href="">
+                <a href="{% url 'teams:create' %}">
                 <i class="now-ui-icons education_atom"></i>
                 <p>Create Team</p>
                 </a>
