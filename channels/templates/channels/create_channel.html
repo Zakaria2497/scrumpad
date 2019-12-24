@@ -10,8 +10,8 @@
     <div class="col-md-12">
         <div class="card">
         <div class="card-header">
-            <h5 class="title">Create a team!</h5>
-            <p class="category">Fill up the appropriate fields below to create the team</p>
+            <h5 class="title">Create a new channel</h5>
+            <p class="category">Fill up the appropriate fields below to create the channel</p>
         </div>
         <div class="card-body all-icons">
             <div class="row">
@@ -21,7 +21,7 @@
                     <form method="POST">
                         {% csrf_token %}
                         {% bootstrap_form form %}
-                        <input type="submit" class='btn btn-primary' value="Create Team">
+                        <input type="submit" class='btn btn-primary' value="Create Channel">
                     </form>
                 </div>
             </div>

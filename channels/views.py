@@ -4,7 +4,7 @@ from django.views.generic import CreateView
 from . import forms
 
 # Create your views here.
-class TeamCreate(CreateView):
-    form_class = forms.TeamCreateForm
+class ChannelCreate(CreateView):
+    form_class = forms.ChannelCreateForm
     success_url = reverse_lazy('home') #change it later to my_teams
-    template_name = 'teams/create_team.html'
+    template_name = 'channels/create_channel.html'

@@ -105,15 +105,15 @@
           </li>
           {% if user.is_authenticated %}
             <li {% block create %} {% endblock %}>
-                <a href="{% url 'teams:create' %}">
+                <a href="{% url 'channels:create' %}">
                 <i class="now-ui-icons education_atom"></i>
-                <p>Create Team</p>
+                <p>Create A Channel</p>
                 </a>
             </li>
-            <li {% block teams %} {% endblock %}>
+            <li {% block channels %} {% endblock %}>
                 <a href="">
                 <i class="now-ui-icons design_bullet-list-67"></i>
-                <p>My Teams</p>
+                <p>Manage My Channels</p>
                 </a>
             </li>
             <li {% block invitations %} {% endblock %}>
@@ -122,10 +122,10 @@
                 <p>Invitations</p>
                 </a>
             </li>
-            <li {% block notifications %} {% endblock %}>
+            <li {% block report %} {% endblock %}>
                 <a href="">
                 <i class="now-ui-icons ui-1_bell-53"></i>
-                <p>Notifications</p>
+                <p>Give Daily Report</p>
                 </a>
             </li>
           {% endif %}
