@@ -631,6 +631,18 @@ fieldset[disabled] .btn-primary.active {
   color: #FFFFFF;
 }
 
+.my-btn-success {
+  color: #18ce0f;
+  background-color: #FFFFFF;
+  border: 1px solid;
+}
+
+.my-btn-success:hover {
+  color: #FFFFFF;
+  background-color: #18ce0f;
+  border: none;
+}
+
 .btn-success:hover,
 .btn-success:focus,
 .btn-success:not(:disabled):not(.disabled):active,
@@ -765,6 +777,18 @@ fieldset[disabled] .btn-info.active {
   color: #FFFFFF;
 }
 
+.my-btn-warning {
+  color: #FFB236;
+  background-color: #FFFFFF;
+  border: 1px solid;
+}
+
+.my-btn-warning:hover {
+  background-color: #FFB236;
+  color: #FFFFFF;
+  border: none;
+}
+
 .btn-warning:hover,
 .btn-warning:focus,
 .btn-warning:not(:disabled):not(.disabled):active,
@@ -830,6 +854,18 @@ fieldset[disabled] .btn-warning.active {
 .btn-danger {
   background-color: #FF3636;
   color: #FFFFFF;
+}
+
+.my-btn-danger {
+  color: #FF3636;
+  background-color: #FFFFFF;
+  border: 1px solid;
+}
+
+.my-btn-danger:hover {
+  background-color: #FF3636;
+  color: #FFFFFF;
+  border: none;
 }
 
 .btn-danger:hover,
@@ -1909,7 +1945,7 @@ h6,
 .h6 {
   font-size: 1em;
   font-weight: 700;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 p.description {
@@ -1943,7 +1979,7 @@ p.description {
 
 .category,
 .card-category {
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-weight: 400;
   color: #9A9A9A;
   font-size: 0.7142em;

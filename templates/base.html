@@ -66,7 +66,7 @@
   <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Scrum Pad
+    Standploye
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
     name='viewport' />
@@ -89,10 +89,10 @@
     -->
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-          SP
+          
         </a>
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Scrum Pad
+          Standploye
         </a>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -111,9 +111,9 @@
                 </a>
             </li>
             <li {% block channels %} {% endblock %}>
-                <a href="">
+                <a href="{% url 'channels:manage' %}">
                 <i class="now-ui-icons design_bullet-list-67"></i>
-                <p>Manage My Channels</p>
+                <p>My Channels</p>
                 </a>
             </li>
             <li {% block invitations %} {% endblock %}>

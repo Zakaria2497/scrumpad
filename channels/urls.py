@@ -4,5 +4,8 @@ from . import views
 app_name = 'channels'
 
 urlpatterns = [
-    path('create/', views.ChannelCreate.as_view(), name='create')
+    path('create/', views.channelcreate, name='create'),
+    path('manage/', views.ChannelManage.as_view(), name='manage'),
+    path('manage/<id>',views.IndividualChannelManage.as_view(),name='manage_channel'),
+    path('manage/<int:id>/basic',views.channelmanage,name='manage_basic')
 ]

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block channels %}
+class='active'
+{% endblock %}
+
+{% block inner_content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card-header">
+                    <h5 class="title">#{{this_channel.Name}}</h5>
+                    <p class="category">{{this_channel.Description}}</p>
+                </div>
+            </div>
+            <div class="col-md-7 text-sm-left text-md-right">
+                <div class="card-header">
+                    <a href="{% url 'channels:manage_basic' id=this_channel.id  %}"><button class="btn my-btn-success btn-round"><i class="fas fa-info" style="padding-right: 8px;"></i>Basic</button></a>
+                    <a href=""><button class="btn my-btn-warning btn-round"><i class="fas fa-question" style="padding-right: 8px;"></i>Questions</button></a>
+                    <a href=""><button class="btn my-btn-danger btn-round"><i class="fas fa-user-friends" style="padding-right: 8px;"></i>Participants</button></a>
+                    <p class='category'></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block special %}
+
+    {% endblock %}
+    
+</div>
+
+{% endblock %}

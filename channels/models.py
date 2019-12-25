@@ -15,6 +15,14 @@ class Channel(models.Model):
     standup_time = models.TimeField()
     standup_duration_minutes = models.IntegerField()
 
+class Membership(models.Model):
+    channel = models.IntegerField()
+    user = models.TextField()
+    view = models.BooleanField()
+    report = models.BooleanField()
+    manage = models.BooleanField()
+
+
 
 
 

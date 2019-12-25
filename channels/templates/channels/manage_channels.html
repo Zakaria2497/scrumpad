@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block channels %}
+class='active'
+{% endblock %}
+
+{% block inner_content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="title">Channel Dashboard</h5>
+            <p class="category">Every channel you're involved with</p>
+        </div>
+
+    </div>
+    {% for m in my_channels %}
+        <div class="card">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card-header">
+                        <h6 class="title">#{{m.channel_name}}</h6>
+                        <p class="category" style="padding-top: 8px;">Description: {{m.channel_description}}</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 text-sm-left text-md-right">
+                    <div class="card-header">
+                        {% if m.view_perm == True %}
+                            <a href=""><button class="btn my-btn-success btn-round"><i class="fas fa-pencil-alt" style="padding-right: 8px;"></i>Report</button></a>
+                        {% endif %}
+                        {% if m.report_perm == True %}
+                            <a href=""><button class="btn my-btn-warning btn-round"><i class="fas fa-eye" style="padding-right: 8px;"></i>Timeline</button></a>
+                        {% endif %}
+                        {% if m.manage_perm == True %}
+                            <a href="{% url 'channels:manage_channel' id=m.channel_id %}"><button class="btn my-btn-danger btn-round"><i class="fas fa-cog" style="padding-right:8px;"></i>Manage</button></a>
+                        {% endif %}
+                        <p class='category'></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
