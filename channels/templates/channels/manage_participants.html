@@ -1,0 +1,40 @@
+{% extends "channels/manage_individual_channel.html" %}
+{% load bootstrap3 %}
+
+{% block special%}
+    {% for item1,item2 in my_list %}
+        <div class="card">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card-header">
+                        <h6 class="title">{{item2.first_name}}</h6>
+                        <p class="category" style="padding-top: 8px;">Click to toggle permissions</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-8 text-sm-left text-md-right">
+                    <div class="card-header">
+                        {% if item1.report == True %}
+                            <a href="{% url 'channels:toggle' option=1 membership=item1.id %}"><button class="btn btn-success btn-round"><i class="fas fa-check" style="padding-right: 8px;"></i>Can Report</button></a>
+                        {% else %}
+                            <a href="{% url 'channels:toggle' option=1 membership=item1.id %}"><button class="btn btn-danger btn-round"><i class="fas fa-times" style="padding-right: 8px;"></i>Can't Report</button></a>
+                        {% endif %}
+                        
+                        {% if item1.view == True %}
+                            <a href="{% url 'channels:toggle' option=2 membership=item1.id %}"><button class="btn btn-success btn-round"><i class="fas fa-check" style="padding-right: 8px;"></i>Can See Timeline</button></a>
+                        {% else %}
+                            <a href="{% url 'channels:toggle' option=2 membership=item1.id %}"><button class="btn btn-danger btn-round"><i class="fas fa-times" style="padding-right: 8px;"></i>Can't See Timeline</button></a>
+                        {% endif %}
+                        
+                        {% if item1.manage == True %}
+                            <a href="{% url 'channels:toggle' option=3 membership=item1.id %}"><button class="btn btn-success btn-round"><i class="fas fa-check" style="padding-right: 8px;"></i>Can Manage</button></a>
+                        {% else %}
+                            <a href="{% url 'channels:toggle' option=3 membership=item1.id %}"><button class="btn btn-danger btn-round"><i class="fas fa-times" style="padding-right: 8px;"></i>Can't Manage</button></a>
+                        {% endif %}
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

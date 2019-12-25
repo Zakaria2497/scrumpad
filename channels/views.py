@@ -11,7 +11,7 @@ class ChannelCreate(CreateView):
 
 
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
 from django.template.loader import render_to_string
 from .forms import ChannelCreateForm
 from .models import Membership, Channel
@@ -67,6 +67,8 @@ class ChannelManage(TemplateView):
         
         return context
 
+
+
 class IndividualChannelManage(TemplateView):
     template_name = 'channels/manage_individual_channel.html'
 
@@ -78,6 +80,8 @@ class IndividualChannelManage(TemplateView):
         current_channel = list(Channel.objects.filter(id=id))
         context['this_channel'] = current_channel[0]
         return context
+
+
 
 class ManageBasic(TemplateView):
     template_name = 'channels/manage_basic.html'
@@ -103,3 +107,34 @@ def channelmanage(request, id):
         form.save()
         return redirect('home')
     return render(request, 'channels/manage_basic.html', {'form':form, 'this_channel':current_channel[0]}) 
+
+
+
+from django.contrib.auth.models import User
+
+def channelmanageparticipants(request, id):
+    current_channel = get_object_or_404(Channel, id=id)
+    membership_list = list(Membership.objects.filter(channel=id))
+    member_list = []
+    for obj in  membership_list:
+        temp = get_object_or_404(User, username=obj.user)
+        member_list.append(temp)
+    my_list = zip(membership_list, member_list)
+    return render(request, 'channels/manage_participants.html', {'this_channel':current_channel, 'my_list':my_list}) 
+
+
+
+from .import urls
+
+def toggle(request, membership, option):
+    temp = get_object_or_404(Membership, id=membership)
+    if option == 1:
+        temp.report = not temp.report
+    elif option == 2:
+        temp.view = not temp.view
+    else:
+        temp.manage = not temp.manage
+    temp.save()
+    return HttpResponseRedirect(reverse('channels:manage_participants', kwargs={'id':temp.channel}))
+
+
